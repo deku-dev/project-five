@@ -6,7 +6,7 @@ var path = {
     html: "dist/",
     js: "dist/scripts/",
     css: "dist/styles/css/",
-    img: "assets/build/img/",
+    img: "dist/assets/",
     fonts: "dist/fonts/",
   },
   src: {
