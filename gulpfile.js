@@ -75,18 +75,20 @@ gulp.task("html:build", function () {
 
 // сбор стилей
 gulp.task("css:build", function () {
-  return gulp
-    .src(path.src.style) // получим main.scss
-    .pipe(plumber()) // для отслеживания ошибок
-    .pipe(sourcemaps.init()) // инициализируем sourcemap
-    .pipe(sass()) // scss -> css
-    .pipe(autoprefixer()) // добавим префиксы
-    .pipe(gulp.dest(path.build.css))
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(cleanCSS()) // минимизируем CSS
-    .pipe(sourcemaps.write("./")) // записываем sourcemap
-    .pipe(gulp.dest(path.build.css)) // выгружаем в build
-    .pipe(webserver.reload({ stream: true })); // перезагрузим сервер
+  return (
+    gulp
+      .src(path.src.style) // получим main.scss
+      .pipe(plumber()) // для отслеживания ошибок
+      .pipe(sourcemaps.init()) // инициализируем sourcemap
+      .pipe(sass()) // scss -> css
+      .pipe(autoprefixer()) // добавим префиксы
+      .pipe(gulp.dest(path.build.css))
+      // .pipe(rename({ suffix: ".min" }))
+      // .pipe(cleanCSS()) // минимизируем CSS
+      .pipe(sourcemaps.write()) // записываем sourcemap
+      .pipe(gulp.dest(path.build.css)) // выгружаем в build
+      .pipe(webserver.reload({ stream: true }))
+  ); // перезагрузим сервер
 });
 
 // сбор js
