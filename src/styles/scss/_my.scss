@@ -7,3 +7,52 @@ header {
 nav {
   background-color: #08080fdb;
 }
+.customize {
+  background-color: #f2f2f2;
+}
+
+.my-feature-img {
+  border: 1px solid #000;
+  border-radius: 50%;
+  padding: 21px;
+  margin-bottom: 35px;
+}
+.my-width-table {
+  width: 28px;
+}
+.my-line-double {
+  &::after,
+  &::before {
+    content: "";
+    display: inline-block;
+    background-color: $primary;
+    height: 2px;
+    width: 20px;
+  }
+
+  &::before {
+    margin-right: 2px;
+  }
+}
+.my-reviews-bg {
+  background-image: url(/../assets/reviews-bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.my-review-img {
+  width: 59px;
+  height: 59px;
+}
+.my-bg-opacity {
+  background-color: #08080fb9;
+}
+.my-height-carou {
+  min-height: 390px;
+}
+.my-under-reviews {
+  background-color: #15141a;
+}
+.my-svg-footer {
+  fill: $text-muted;
+}

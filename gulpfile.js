@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 
 /* пути к исходным файлам (src), к готовым файлам (build), а также к тем, за изменениями которых нужно наблюдать (watch) */
 var path = {
@@ -24,7 +24,7 @@ var path = {
     fonts: "srs/fonts/**/*.*",
   },
   clean: "./dist/*",
-};
+}
 
 /* настройки сервера */
 var config = {
@@ -32,7 +32,7 @@ var config = {
     baseDir: "./dist",
   },
   notify: false,
-};
+}
 
 /* подключаем gulp и плагины */
 var gulp = require("gulp"), // подключаем Gulp
@@ -49,19 +49,19 @@ var gulp = require("gulp"), // подключаем Gulp
   jpegrecompress = require("imagemin-jpeg-recompress"), // плагин для сжатия jpeg
   pngquant = require("imagemin-pngquant"), // плагин для сжатия png
   del = require("del"), // плагин для удаления файлов и каталогов
-  rename = require("gulp-rename");
+  rename = require("gulp-rename")
 
 var svgSprite = require("gulp-svg-sprites"),
   svgmin = require("gulp-svgmin"),
   cheerio = require("gulp-cheerio"),
-  replace = require("gulp-replace");
+  replace = require("gulp-replace")
 
 /* задачи */
 
 // запуск сервера
 gulp.task("webserver", function () {
-  webserver(config);
-});
+  webserver(config)
+})
 
 // сбор html
 gulp.task("html:build", function () {
@@ -70,8 +70,8 @@ gulp.task("html:build", function () {
     .pipe(plumber()) // отслеживание ошибок
     .pipe(rigger()) // импорт вложений
     .pipe(gulp.dest(path.build.html)) // выкладывание готовых файлов
-    .pipe(webserver.reload({ stream: true })); // перезагрузка сервера
-});
+    .pipe(webserver.reload({ stream: true })) // перезагрузка сервера
+})
 
 // сбор стилей
 gulp.task("css:build", function () {
@@ -88,8 +88,8 @@ gulp.task("css:build", function () {
       .pipe(sourcemaps.write()) // записываем sourcemap
       .pipe(gulp.dest(path.build.css)) // выгружаем в build
       .pipe(webserver.reload({ stream: true }))
-  ); // перезагрузим сервер
-});
+  ) // перезагрузим сервер
+})
 
 // сбор js
 gulp.task("js:build", function () {
@@ -103,13 +103,13 @@ gulp.task("js:build", function () {
     .pipe(uglify()) // минимизируем js
     .pipe(sourcemaps.write("./")) //  записываем sourcemap
     .pipe(gulp.dest(path.build.js)) // положим готовый файл
-    .pipe(webserver.reload({ stream: true })); // перезагрузим сервер
-});
+    .pipe(webserver.reload({ stream: true })) // перезагрузим сервер
+})
 
 // перенос шрифтов
 gulp.task("fonts:build", function () {
-  return gulp.src(path.src.fonts).pipe(gulp.dest(path.build.fonts));
-});
+  return gulp.src(path.src.fonts).pipe(gulp.dest(path.build.fonts))
+})
 
 // обработка картинок
 gulp.task("image:build", function () {
@@ -130,18 +130,18 @@ gulp.task("image:build", function () {
         ])
       )
     )
-    .pipe(gulp.dest(path.build.img)); // выгрузка готовых файлов
-});
+    .pipe(gulp.dest(path.build.img)) // выгрузка готовых файлов
+})
 
 // удаление каталога build
 gulp.task("clean:build", function () {
-  return del(path.clean);
-});
+  return del(path.clean)
+})
 
 // очистка кэша
 gulp.task("cache:clear", function () {
-  cache.clearAll();
-});
+  cache.clearAll()
+})
 
 // сборка
 gulp.task(
@@ -156,16 +156,16 @@ gulp.task(
       "image:build"
     )
   )
-);
+)
 
 // запуск задач при изменении файлов
 gulp.task("watch", function () {
-  gulp.watch(path.watch.html, gulp.series("html:build"));
-  gulp.watch(path.watch.css, gulp.series("css:build"));
-  gulp.watch(path.watch.js, gulp.series("js:build"));
-  gulp.watch(path.watch.img, gulp.series("image:build"));
-  gulp.watch(path.watch.fonts, gulp.series("fonts:build"));
-});
+  gulp.watch(path.watch.html, gulp.series("html:build"))
+  gulp.watch(path.watch.css, gulp.series("css:build"))
+  gulp.watch(path.watch.js, gulp.series("js:build"))
+  // gulp.watch(path.watch.img, gulp.series("image:build"));
+  // gulp.watch(path.watch.fonts, gulp.series("fonts:build"))
+})
 
 // задача по умолчанию
-gulp.task("default", gulp.series("build", gulp.parallel("webserver", "watch")));
+gulp.task("default", gulp.series("build", gulp.parallel("webserver", "watch")))
