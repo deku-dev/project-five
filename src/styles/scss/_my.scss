@@ -10,13 +10,14 @@ header {
 }
 
 .my-feature-img {
-  border: 1px solid #000;
+  border: 1px solid #e0e0e0;
   border-radius: 50%;
   padding: 21px;
   margin-bottom: 35px;
 }
 .my-width-table {
-  width: 28px;
+  width: 26px;
+  text-align: center;
 }
 .my-line-double {
   &::after,
@@ -35,16 +36,20 @@ header {
 .my-menu-item {
   position: relative;
   a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fffefe;
     text-decoration: none;
   }
   .my-line-double {
     text-align: center;
-    margin-top: -10px;
+    margin-top: -15px;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
   }
 }
-.my-menu-item:hover .my-line-double {
+.my-menu-item:hover .my-line-double,
+.my-menu-item.active .my-line-double {
   opacity: 1;
 }
 .my-reviews-bg {
@@ -67,12 +72,15 @@ header {
   background-color: #15141a;
 }
 .my-svg-footer {
-  fill: $text-muted;
+  fill: white;
+  opacity: 0.2;
 }
 .my-onepagetheme {
   line-height: 10px;
   margin-left: 7px;
+  letter-spacing: 0.14em;
   font-size: 9px;
+  opacity: 0.3;
 }
 .my-lucid-brand {
   font-size: 24px;
@@ -84,16 +92,19 @@ header {
 .my-form-feedback {
   max-width: 772px;
   width: 100%;
-  padding: 0;
-  left: 25%;
-  bottom: -10%;
-  right: 25%;
+  padding-bottom: 40px;
   background-color: #15141a;
+  position: relative;
+  top: 60px;
+}
+#feedback-form {
+  padding-bottom: 63px;
 }
 .my-style-input {
   outline: none;
   border-radius: 5px;
   padding: 14px;
+  font-size: 18px;
   border: none;
   margin: 0;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -106,4 +117,95 @@ textarea.my-style-input {
 ::placeholder {
   font-weight: bold;
   font-size: 14px;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+.features {
+  position: relative;
+  margin-top: -100px;
+}
+// .my-btn-style {
+//   font-weight: 700;
+// }
+.my-primary-text {
+  letter-spacing: 0.1em;
+}
+.card-text {
+  font-size: 1.125rem;
+}
+.card-title {
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+}
+h1 {
+  color: #1a1a1a;
+}
+.my-main-text {
+  font-size: 1.125rem;
+}
+.font-size-medium {
+  font-size: 1.5rem;
+}
+.author-rev {
+  font-size: 1rem;
+}
+.carousel-indicators {
+  align-items: center;
+}
+.carousel-indicators li {
+  background-color: transparent;
+  width: 4px;
+  height: 4px;
+  margin: 0 10px;
+  border: 2px solid #999;
+  border-radius: 100%;
+}
+.carousel-indicators li.active {
+  background-color: #fff;
+  border: none;
+  width: 14px;
+  height: 14px;
+}
+.my-outline-color {
+  border-color: #e0e0e0;
+}
+.card-header {
+  padding: 21.5px;
+}
+.my-price-style {
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-weight: 600;
+  line-height: 50px;
+  small {
+    font-size: 0.5em;
+    line-height: 30px;
+  }
+}
+.my-card-body {
+  padding: 33.5px;
+}
+@media (max-width: 1198px) {
+  .header-device {
+    order: 0;
+  }
+  .landing-header {
+    padding-bottom: 120px;
+    order: 1;
+  }
+  .my-height-carou {
+    min-height: 650px;
+  }
+  .my-style-input {
+    margin: 5px 0;
+  }
+}
+@media (max-width: 991px) {
+  .my-w-100 {
+    width: 100%;
+  }
 }

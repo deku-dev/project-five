@@ -1,6 +1,6 @@
 $grid-breakpoints: (
   xs: 0,
-  sm: 576px,
+  sm: 676px,
   md: 771px,
   lg: 992px,
   xl: 1200px,
@@ -9,7 +9,17 @@ $container-max-widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1140px,
+  xl: 1170px,
 );
 $card-cap-bg: transparent;
 $font-family-base: "Source Sans Pro", sans-serif;
+$font-size-base: 0.875rem;
+$primary: #008ed6;
+$headings-font-weight: 600;
+$input-btn-padding-y: 0.87rem;
+$input-btn-padding-x: 1.78rem;
+$text-muted: #999;
+$h1-font-size: 2.25rem;
+$card-border-radius: 0;
+$card-border-color: #e0e0e0;
+$enable-prefers-reduced-motion-media-query: false;
