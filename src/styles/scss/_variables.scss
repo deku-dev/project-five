@@ -1,2 +1,15 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 771px,
+  lg: 992px,
+  xl: 1200px,
+);
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+);
 $card-cap-bg: transparent;
 $font-family-base: "Source Sans Pro", sans-serif;
